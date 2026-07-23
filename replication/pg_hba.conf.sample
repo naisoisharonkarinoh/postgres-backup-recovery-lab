@@ -1,0 +1,9 @@
+# Part E: pg_hba.conf entry required to let the "replicator" role open a
+# streaming-replication connection from the standby (or, in this lab, from
+# the local machine acting as the standby's host).
+#
+# Placed ABOVE any broader "host replication all ... trust/md5" line so it
+# is actually the entry that gets matched for this specific role.
+
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+host    replication     replicator      127.0.0.1/32            md5

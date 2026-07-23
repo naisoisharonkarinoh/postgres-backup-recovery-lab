@@ -1,0 +1,15 @@
+# Part B: WAL archiving configuration (as specified in the lab)
+#
+# These are the settings added to postgresql.conf to enable WAL archiving.
+# On Linux, the archive_command below is exactly as prescribed by the lab.
+
+wal_level = replica
+archive_mode = on
+archive_command = 'cp %p /home/$USER/backups/wal/%f'
+
+# --- Windows adaptation actually used to generate the real evidence in this
+# repository (see wal_archiving/wal_setup.md for why) ---
+#
+# wal_level = replica
+# archive_mode = on
+# archive_command = '"C:/Program Files/Git/usr/bin/cp.exe" %p "C:/Users/naiso/AppData/Local/Temp/pg-sandbox/wal_archive/%f"'
